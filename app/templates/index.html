@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}TC{% endblock %}
+{% block content %}
+  {% include "sections/_home.html" %}
+  {% include "sections/_portfolio.html" %}
+  {% include "sections/_contact.html" %}
+{% endblock %}
+{% block scripts %}
+  <!-- Optional: page-specific scripts, or leave empty -->
+  {{ super() }}
+  <script>
+    const lightbox = GLightbox({
+      selector: '.glightbox',
+      touchNavigation: true,
+      zoomable: true
+    });
+  </script>
+{% endblock %}

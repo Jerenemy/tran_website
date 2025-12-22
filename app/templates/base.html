@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{% block title %}Portfolio{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='tran/css/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='tran/css/layout.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='tran/css/components.css') }}">    
+    <link rel="stylesheet" href="{{ url_for('static', filename='tran/css/utilities.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='tran/css/pages/home.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='tran/css/pages/contact.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='tran/css/pages/portfolio.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='tran/css/pages/blog.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='tran/css/pages/game.css') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='tran/vendor/glightbox/glightbox.min.css') }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet"></head>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+<body>
+    {% include "_nav.html" %}
+    {% block content %}{% endblock %}
+    {% block scripts %}
+        <script src="{{ url_for('static', filename='tran/js/base.js') }}"></script>
+        <script src="{{ url_for('static', filename='tran/vendor/glightbox/glightbox.min.js') }}"></script>
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,259 @@
+/* Base button — structure only */
+.btn {
+    display: inline-block;
+    margin-top: 0.75rem;
+    padding: 0.5rem 0.9rem;
+    border-radius: 10px;
+    font-weight: 400;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.25s ease, color 0.25s ease, transform 0.15s ease;
+}
+
+/* Basic look (non-glass) */
+.btn {
+    background: var(--btn-bg, #fff);
+    color: var(--btn-fg, #ffffff);
+    border: 1px solid var(--btn-border, #ccc);
+}
+
+.btn:hover {
+    background: var(--btn-bg-hover, #eee);
+}
+
+/* Optional: variant if you want accent-colored buttons */
+.btn--accent {
+    --btn-bg: var(--accent, #4fc3f7);
+    --btn-fg: #fff;
+    --btn-border: var(--accent, #4fc3f7);
+}
+.btn--accent:hover {
+    --btn-bg-hover: #38bdf8;
+}
+
+
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1rem;
+}
+
+.container { 
+    max-width: var(--max); 
+    margin: 0 auto; 
+    padding: 0 
+    var(--pad) 
+    var(--pad); 
+}
+
+/* nav */
+/* base structure, no visuals */
+.site-header {
+  position: sticky;
+  top: 0;
+  height: var(--headerH);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0 var(--pad);
+  z-index: 10;
+}
+
+/* Glassy navbar variant */
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem var(--pad);
+
+    background: var(--nav-bg, rgba(0, 0, 0, 0.45));
+    border: 1px solid var(--nav-border, rgba(255, 255, 255, 0.25));
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 999px;
+}
+
+/* optional: make links inside glass-nav readable */
+.nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin: 0 0.25rem;
+    transition: color 0.3s ease;
+}
+
+.nav a:hover {
+    color: var(--accent, #4fc3f7);
+}
+
+.nav a + a {
+    margin-left: 0.35rem;
+}
+
+.nav-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 0.45rem;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.35);
+    color: inherit;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.2s ease;
+}
+
+.nav-toggle:hover {
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.nav-toggle:focus-visible {
+    outline: 2px solid var(--accent, #4fc3f7);
+    outline-offset: 2px;
+}
+
+.nav-toggle__bar {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: currentColor;
+    border-radius: 999px;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+}
+
+@media (max-width: 768px) {
+    .site-header {
+        padding: 0.75rem var(--pad);
+    }
+
+    .nav {
+        position: absolute;
+        top: calc(100% + 0.5rem);
+        right: var(--pad);
+        left: var(--pad);
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 0.5rem;
+        padding: 1rem;
+        border-radius: 18px;
+        transform: scaleY(0);
+        transform-origin: top;
+        opacity: 0;
+        pointer-events: none;
+        transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    .nav[data-collapsed="false"] {
+        transform: scaleY(1);
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .nav a {
+        width: auto;
+        margin: 0;
+        padding: 0.35rem 0;
+        text-align: right;
+        align-self: flex-end;
+    }
+
+    .nav-toggle {
+        display: inline-flex;
+    }
+}
+
+@media (min-width: 769px) {
+    .nav a {
+        margin: 0 0.75rem;
+    }
+}
+
+
+/* Regular text container */
+.text-container {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    padding: clamp(1rem, 2vw, 2rem);
+    border-radius: 16px;
+
+    /* solid background and clean edge */
+    background: var(--text-bg, #fff);
+    border: 1px solid var(--text-border, #eaeaea);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    color: var(--text-fg, #111);
+}
+
+.brand {
+  color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin: 0 0.75rem;
+    transition: color 0.3s ease;
+}
+
+.brand a:hover {
+    color: var(--accent, #ae4ff7);
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.social-links a {
+  color: #fff;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.social-links a:hover {
+  color: var(--accent, #4fc3f7);
+  transform: translateY(-2px);
+}
+
+.social-links svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+
+
+/* Full-width heading section */
+.heading {
+    width: 100%;
+    background: var(--heading-bg, #f2f2f2); /* light gray */
+    padding: clamp(1.5rem, 4vw, 3rem) 0;
+
+    display: flex;
+    justify-content: center;               /* center inner oval */
+    align-items: center;
+}
+
+/* Inner oval text container */
+.heading__title {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;                 /* <-- long oval shape */
+    background: var(--heading-inner-bg, #fff);
+    color: var(--heading-text, #ffffff);
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-weight: 600;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}

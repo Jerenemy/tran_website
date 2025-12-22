@@ -1,0 +1,41 @@
+*
+# except
+!.gitignore
+!README.md
+!__init__.py
+# app
+!app/
+!app/config.py
+!app/extensions.py
+# blueprints
+!app/blueprints
+# blueprints api
+!app/blueprints/api
+!app/blueprints/api/__init__.py
+!app/blueprints/api/routes.py
+# blueprints public
+!app/blueprints/public
+!app/blueprints/public/__init__.py
+!app/blueprints/public/routes.py
+# templates
+!app/templates
+!app/templates/*
+# templates sections
+!app/templates/sections/
+!app/templates/sections/*
+# static
+!app/static
+# static css
+!app/static/css
+!app/static/css/*
+!app/static/css/pages
+!app/static/css/pages/*
+# static vendor
+!app/static/vendor
+!app/static/vendor/glightbox
+!app/static/vendor/glightbox/*
+# static js
+!/app/static/js
+!/app/static/js/*
+# static game
+!app/static/game

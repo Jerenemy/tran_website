@@ -1,0 +1,10 @@
+*
+!.gitignore
+!tran/
+!tran/*
+!tran/css/*
+!tran/css/pages/*
+!tran/js/*
+!tran/vendor/*
+!tran/vendor/glightbox/*
+!tran/img/projects/
