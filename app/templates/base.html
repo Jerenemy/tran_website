@@ -12,13 +12,14 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='tran/css/pages/contact.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='tran/css/pages/portfolio.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='tran/css/pages/blog.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='tran/css/pages/game.css') }}">
 
     <link rel="stylesheet" href="{{ url_for('static', filename='tran/vendor/glightbox/glightbox.min.css') }}">
 
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet"></head>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+    {% block extra_head %}{% endblock %}
+</head>
 <body>
     {% include "_nav.html" %}
     {% block content %}{% endblock %}

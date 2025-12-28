@@ -37,5 +37,11 @@
 # static js
 !/app/static/js
 !/app/static/js/*
-# static game
-!app/static/game
+# portfolio
+!app/portfolio/
+# admin
+!app/templates/admin/
+!app/templates/admin/*
+!app/blueprints/admin/
+# data
+!app/data/

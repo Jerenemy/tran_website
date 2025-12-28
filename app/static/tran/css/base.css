@@ -18,12 +18,14 @@
     /* home */
     --hero-content-max: 35%;
     --placeholder-color: #c4c3c3;
+    --lightbox-desc-bg: #3f566c;
+    --card-border: #ffffff;
 }
 
 [data-theme="dark"] {
     --bg: #111111;
     --fg: #ffffff;
-    --glass-bg: rgba(255,255,255,0.08);
+    --glass-bg: rgba(96, 33, 33, 0.08);
     --glass-border: rgba(255,255,255,0.18);
 }
 
@@ -54,4 +56,3 @@ section {
     scroll-margin-top: calc(var(--headerH) + 12px); 
     padding: 64px 0; 
 }
-

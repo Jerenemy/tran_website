@@ -6,77 +6,30 @@
 
   <!-- Projects grid -->
   <div class="projects__grid">
-    <!-- Project 1 -->
-    <article class="project-card glassy">
-      <a
-        href="{{ url_for('static', filename='tran/img/projects/quiet.png') }}"
-        class="glightbox"
-        data-gallery="portfolio"
-        data-description="조용한 시간들"
-    >
-        <img
-            src="{{ url_for('static', filename='tran/img/projects/quiet.png') }}"
-            alt="Molecular Dynamics Simulations of p53 Poster"
+    {% for item in portfolio_items %}
+      <article class="project-card glassy">
+        <a
+          href="{{ url_for('static', filename=item.image_full) }}"
+          class="glightbox"
+          data-gallery="portfolio"
+          data-description-id="desc-{{ item.id }}"
+        >
+          <img
+            src="{{ url_for('static', filename=item.image_thumb) }}"
+            alt="{{ item.image_alt | e }}"
             class="project-card__img"
-        />
-      </a>
-      <div class="project-card__body">
-        <h3 class="project-card__title">조용한 시간들</h3>
-        <p class="project-card__desc">
-작은 카페, 빈 거리, 그리고 창가에 앉은 한 사람의 시선.
-트란은 이 프로젝트에서 고요함 속의 아름다움을 담고자 했다.
-사진과 짧은 영상들을 통해 “멈춘 시간”의 감정을 표현하며,
-각 장면은 부드러운 색감과 자연광으로만 촬영되었다.
-배경에는 그녀가 직접 편집한 K-pop 인스트루멘털이 깔려 있다 —
-마치 꿈과 현실 사이에 머무는 듯한 느낌으로.
-        </p>
-      </div>
-    </article>
-
-    <!-- Project 2 -->
-    <article class="project-card glassy">
-      <a
-        href="{{ url_for('static', filename='tran/img/projects/deer.png') }}"
-        class="glightbox"
-        data-gallery="portfolio"
-        data-description="「小さな鹿の夢」"
-      >
-        <img
-          src="{{ url_for('static', filename='tran/img/projects/deer.png') }}"
-          alt="My Project Poster"
-          class="project-card__img"
-        />
-      </a>
-      <div class="project-card__body">
-        <h3 class="project-card__title">「小さな鹿の夢」</h3>
-        <p class="project-card__desc">
-小さな鹿が森の中で自分の影を追いかける、幻想的な写真シリーズ。
-トラン・チャウは、純粋さと孤独の中にある優しさをテーマに、
-柔らかな光と淡い色彩で世界を描き出した。
-作品は手作りの小道具と自然素材を使っており、
-すべての写真は静けさと温もりを同時に感じさせる。        </p>
-      </div>
-    </article>
-
-    <!-- Project 3 -->
-    <article class="project-card glassy">
-      <a
-        href="{{ url_for('static', filename='tran/img/projects/shirt.png') }}"
-        class="glightbox"
-        data-gallery="portfolio"
-        data-description="Những Chiếc Áo Thoáng Nhẹ"
-      >
-        <img
-          src="{{ url_for('static', filename='tran/img/projects/shirt.png') }}"
-          alt="My Project Poster"
-          class="project-card__img"
-        />
-      </a>
-      <div class="project-card__body">
-        <h3 class="project-card__title">Những Chiếc Áo Thoáng Nhẹ</h3>
-        <p class="project-card__desc">
-Một bộ ảnh và video ngắn ghi lại những khoảnh khắc nhỏ trong đời sống hằng ngày — tiếng gió lùa qua áo, ánh sáng chiếu lên tay áo mỏng, nụ cười thoáng qua của người đi ngang. Dự án này của Tran Chau mang tinh thần “nhẹ như hơi thở,” tôn vinh sự trong trẻo và giản dị của cái đẹp đời thường. Mỗi tấm ảnh được chụp bằng máy film, không chỉnh sửa, để giữ nguyên cảm xúc thật.        </p>
-      </div>
-    </article>
+          />
+        </a>
+        <div class="project-card__body">
+          <h3 class="project-card__title">{{ item.title }}</h3>
+          <p class="project-card__desc">{{ item.short_desc | safe }}</p>
+        </div>
+        <div id="desc-{{ item.id }}" class="project-card__lightbox-desc" hidden>
+          {{ item.long_desc | safe }}
+        </div>
+      </article>
+    {% else %}
+      <p class="projects__empty">No portfolio items yet.</p>
+    {% endfor %}
   </div>
 </section>

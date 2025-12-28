@@ -1,18 +1,13 @@
 from flask import render_template, send_from_directory, current_app
+
+from ...portfolio import get_portfolio_store
 from . import bp
 
 @bp.get("/")
 def index():
-    return render_template("index.html")
-
-# # later: presentations
-# @bp.get("/presentations")
-# def presentations():
-#     return render_template("presentations.html")
-
-@bp.get("/game")
-def game():
-    return render_template("game.html")
+    store = get_portfolio_store()
+    items = store.list_items()
+    return render_template("index.html", portfolio_items=items)
 
 # later: load post by slug; for now just show blank template
 @bp.get("/blog")
@@ -27,3 +22,4 @@ def resume():
         "resume.pdf",
         mimetype="application/pdf"
     )
+    
