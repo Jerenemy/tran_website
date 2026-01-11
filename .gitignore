@@ -45,3 +45,5 @@
 !app/blueprints/admin/
 # data
 !app/data/
+# site settings
+!site_settings/
