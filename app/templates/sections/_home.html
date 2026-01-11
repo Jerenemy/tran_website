@@ -1,12 +1,9 @@
 <section id="home" class="hero has-overlay"
-         style="--hero-bg: url('{{ url_for('static', filename='tran/img/real-tran-bg.jpg') }}')">  
+         style="--hero-bg: url('{{ url_for('static', filename=site_settings.home_bg) }}')">
   <div class="hero__content glassy hero__content--left">
     <h1>Tran Chau</h1>
     <p>
-      Hi, I’m Tran Chau — a model with a love for simplicity, softness, and stories told through little details. My style is playful and minimalistic, often inspired by the gentle beauty of bunnies, deer, and quiet moments.
-I believe in creating images that feel alive yet calm, where warmth and curiosity meet. Sometimes I sign my work as MuranoCraft, a name that reflects my love for delicate craftsmanship and subtle artistry.
-Outside of modeling, I’m learning Korean, discovering the rhythm of new words, and finding joy in how languages can carry feeling. I also adore K-pop, long walks, and baggy clothes that make me feel both small and free.
-And if you know the inside joke — yes, I’m the pearl, and he’s the oyster.
+      {{ site_settings.home_description | safe }}
     </p>
     <a class="btn glassy" href="{{ url_for('public.resume') }}" target="_blank" rel="noopener">Resume</a><br>
     <a class="btn glassy" href="#contact" target="_blank" rel="noopener">Contact</a>

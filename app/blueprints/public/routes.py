@@ -1,13 +1,17 @@
 from flask import render_template, send_from_directory, current_app
+from werkzeug.exceptions import NotFound
 
 from ...portfolio import get_portfolio_store
+from ...site_settings import get_site_settings_store
 from . import bp
 
 @bp.get("/")
 def index():
     store = get_portfolio_store()
     items = store.list_items()
-    return render_template("index.html", portfolio_items=items)
+    settings = get_site_settings_store().get_settings()
+    return render_template("index.html", portfolio_items=items, site_settings=settings)
+
 
 # later: load post by slug; for now just show blank template
 @bp.get("/blog")
@@ -23,3 +27,14 @@ def resume():
         mimetype="application/pdf"
     )
     
+bp.get("/resume")
+def resume():
+    settings = get_site_settings_store().get_settings()
+    filename = settings.get("resume_filename") or "resume.pdf"
+    files_dir = current_app.config["SITE_FILES_DIR"]
+    try:
+        return send_from_directory(files_dir, filename, mimetype="application/pdf")
+    except NotFound: 
+        if filename != "resume.pdf":
+            return send_from_directory(files_dir, "resume.pdf", mimetype="application/pdf")
+        raise

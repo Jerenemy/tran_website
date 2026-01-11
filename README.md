@@ -1,5 +1,15 @@
 # website
 
+## Run the App
+```bash
+poetry run flask --app app:create_app run --debug
+```
+- The site will be available at `http://127.0.0.1:5000/`
+- Contact POST endpoint: `http://127.0.0.1:5000/api/contact`
+- Leaderboard GET endpoint: `http://127.0.0.1:5000/api/leaderboard`
+- Admin login: `http://127.0.0.1:5000/admin`
+
+
 # Personal Website
 A small Flask app for my personal site, serving static pages and a contact API that emails me via Flask-Mail.
 
@@ -53,14 +63,6 @@ A small Flask app for my personal site, serving static pages and a contact API t
    python -c "from werkzeug.security import generate_password_hash; print(generate_password_hash('your-password'))"
    ```
 
-## Run the App
-```bash
-poetry run flask --app app:create_app run --debug
-```
-- The site will be available at `http://127.0.0.1:5000/`
-- Contact POST endpoint: `http://127.0.0.1:5000/api/contact`
-- Leaderboard GET endpoint: `http://127.0.0.1:5000/api/leaderboard`
-- Admin login: `http://127.0.0.1:5000/admin`
 
 ## Portfolio Admin
 - Data lives in `app/data/portfolio.json` (configurable via `PORTFOLIO_DATA_PATH`).
